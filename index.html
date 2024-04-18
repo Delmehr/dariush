@@ -1,0 +1,105 @@
+---
+layout: default
+home: 'true'
+title: Dariush Nazari | Ports, Logistics and Insurance
+summary: Having studied Insurance, and continued in Maritime Economics and Logistics, Dariush Nazari works in Ports, Container Terminals, Logistics and Insurance based in Tehran, Iran.
+learning: Further to consulting in Container Terminals and Ports which is an onging learning process, learning to build small applications with Python, Django, Jekyll and computer science 
+---
+
+
+
+
+<section class="dark" id="projects" name="projects">
+    <div class="section-heading">
+        <h3>Selected Projects</h3>
+    </div>
+    <div class="project-list">
+        {% assign projects = site.projects   %}
+        {% for project in projects %}
+            <div class="project">
+                <div class="container">
+                    <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
+                    {% if project.skills %}
+                        <div class="tags light">
+                            {% for skill in project.skills %}
+                                <span>{{ skill }}</span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% if project.summary %}
+                        <p>{{ project.summary }}</p>
+                    {% endif %}
+                    <a class="button primary" href="{{ project.url }}">View Project</a>
+                </div>
+            </div>
+        {% endfor %}
+        
+    </div>
+</section>
+
+<section class="skills light" id="skills">
+    <div class="section-heading">
+        <h3>Skills &amp; Interests</h3>
+    </div>
+    <div id="professional" class="skill" name="skill">
+        <div class="container">
+            <h2>Professional</h2>
+            <p>I am experimenting as a designer-developer based in Tehran, Iran. Also leading and managing the Quality Control and Port Conventions team at <a href="http://www.pmo.ir/">PMO</a>.</p>
+            <p>I am motivated by the desire to incrimental development of quality control measures and digital twin of ports and terminals.</p>
+            <p>My skills include:</p>
+
+            <div class="skill-lists">
+                <div class="half">
+                    <ul>
+                        <li>Simulation</li>
+                        <li>Quality Control</li>
+                        <li>Django / Python</li>
+                        <li>System Design</li>
+                    </ul>
+                </div>
+                <div class="half">
+                    <ul>
+                        <li>Product Owner/SAFe Scrum Master</li>
+                        <li>Commdercial Insurance</li>
+                        <li>Data Analysis using Python Scikit</li>
+                        <li>Project Management</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <p>I love extending my current knowledge and learning new things. For example, recently I've been {{ page.learning }}.</p>
+        </div>
+    </div>
+    <div id="personal" class="skill">
+        <div class="container">
+            <h2>Personal</h2>
+            <p>I enjoy cycling, runnig, baking cakes and bread: All in my own way!</p>
+            <p>I have been working in the largest Port Complex of Iran for more than 20 years,I have studied in two international colleges, ECO college of Insurance (Tehran, Iran) and MEL (Erasmus University Rotterdam,the Netherlands). In my spare time I work on improving my Italian language skills.</p>
+        </div>
+    </div>
+</section>
+
+<section class="writing" id="writing" name="writing">
+    <div class="section-heading">
+        <h3>Writing</h3>
+    </div>
+    <div class="dark">
+        {% for post in site.posts %}
+            <a href="{{ post.url }}">
+                <span class="container">
+                    <span class="title-block pull-left">
+                        <span class="title">{{ post.title }}</span>
+                        <span class="meta">
+                            {% assign d = post.date | date: "%-d" %}
+                            {% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %}
+                            {{ post.date | date: "%B" }},
+                            {{ post.date | date: "%Y" }}
+                        </span>
+                    </span>
+                    <i class="fa fa-long-arrow-right pull-right"></i>
+                    <span class="clearfix"></span>
+                </span>
+            </a>
+        {% endfor %}
+    </div>
+</section>

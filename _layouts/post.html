@@ -1,0 +1,86 @@
+---
+layout: default
+---
+
+<article class="dark">
+    <div class="section-heading article-heading">
+        <h1>{{ page.title }}</h1>
+    </div>
+
+        <div class="container main">
+            {% if page.summary %}
+                <div class="summary">
+                    <p>{{ page.summary | markdownify }}</p>
+                </div>
+            {% endif %}
+
+            {{ content }}
+
+            {% if page.promo == 'on' %}
+                {% include oreilly-promo.html %}
+            {% endif %}
+
+            <div class="meta-block">
+                <span class="meta">
+                    {% assign d = page.date | date: "%-d" %}
+                    {% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %}
+                    {{ page.date | date: "%B" }},
+                    {{ page.date | date: "%Y" }}
+                </span>
+                <span class="meta">
+                    <a href="/atom.xml"><i class="fa fa-rss"></i></a>
+                </span>
+
+                {% if page.comments == 'on' %}
+                    {% include comments.html %}
+                {% else %}
+                    <p class="meta">
+                        Comments are not enabled on this post.&nbsp;&nbsp;Please email me on n.harris [at] kabucreative.com instead.
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if page.previous or page.next %}
+            <div class="section-heading other-post-heading">
+                <h1>More Articles</h1>
+            </div>
+
+            <div class="footer-post-links">
+                {% if page.previous %}
+                    <a href="{{ page.previous.url }}" class="prev">
+                        <span class="container">
+                            <span class="title-block">
+                                <span class="title">{{ page.previous.title }}</span>
+                                <span class="meta">
+                                    {% assign d = page.previous.date | date: "%-d" %}
+                                    {% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %}
+                                    {{ page.previous.date | date: "%B" }},
+                                    {{ page.previous.date | date: "%Y" }}
+                                </span>
+                            </span>
+                            <i class="fa fa-long-arrow-right right"></i>
+                            <span class="clearfix"></span>
+                        </span>
+                    </a>
+                {% endif %}
+                {% if page.next %}
+                    <a href="{{ page.next.url }}" class="next">
+                        <span class="container">
+                            <span class="title-block">
+                                <span class="title">{{ page.next.title }}</span>
+                                <span class="meta">
+                                    {% assign d = page.next.date | date: "%-d" %}
+                                    {% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %}
+                                    {{ page.next.date | date: "%B" }},
+                                    {{ page.next.date | date: "%Y" }}
+                                </span>
+                            </span>
+                            <i class="fa fa-long-arrow-right"></i>
+                            <span class="clearfix"></span>
+                        </span>
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
+</article>

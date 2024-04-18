@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% if page.home == 'true' %}{{ page.title }}{% else %}{% if page.title %}{{ page.title }} | {% endif %}Dariush Nazari{% endif %}</title>
+        {% if page.summary %}
+            <meta name="description" content="{{ page.summary }}">
+        {% endif %}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
+
+        <link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="{{ site.url }}/atom.xml" />
+
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Raleway:400,600|Open+Sans" rel="stylesheet" type="text/css">
+        <link href="//code.cdn.mozilla.net/fonts/fira.css" rel="stylesheet">
+
+        <link href="/assets/css/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+        <link href="/assets/css/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+
+        <script src="/assets/js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="/assets/js/vendor/fastclick.min.js"></script>
+
+        {% if page.colors %}
+            {% include custom-colors.html %}
+        {% endif %}
+    </head>
