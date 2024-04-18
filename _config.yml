@@ -2,6 +2,7 @@ url: delmehr.github.io/dariush/
 timezone: Iran/Tehran
 permalink: /:year/:month/:day/:title.html
 markdown: kramdown
+baseurl: ""
 
 kramdown:
   input: GFM
@@ -11,7 +12,7 @@ kramdown:
       line_numbers: true
 
 sass:
-    sass_dir: dariush/assets/css/_sass
+    sass_dir: /assets/css/_sass
     style: :compressed
 
 collections:
